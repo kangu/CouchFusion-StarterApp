@@ -1,0 +1,31 @@
+{
+  "name": "bitvocation",
+  "description": "Starting template for CouchFusion based site using Nuxt4",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "PORT=6018 nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "registry:build": "bun run ../../cli-content/generate-component-registry.mjs",
+    "registry:watch": "bun run ../../cli-content/watch-component-registry.ts"
+  },
+  "dependencies": {
+    "@iconify/vue": "^5.0.0",
+    "@nuxt/content": "3.7.1",
+    "@pinia/nuxt": "0.11.2",
+    "@tailwindcss/vite": "4.1.11",
+    "better-sqlite3": "12.4.1",
+    "nuxt": "4.1.2",
+    "pinia": "3.0.3",
+    "vue": "3.5.22",
+    "vue-router": "4.5.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1",
+    "tailwind-merge": "3.3.1",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}

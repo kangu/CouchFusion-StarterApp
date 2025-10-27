@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* Extend tailwind */
+@theme {
+    /* Colors */
+    /*--color-blueish: #1B2D8CE6;
+    --color-teal: #23B9A7;
+    --color-mov: #815292;
+    --color-orange: #DEA616;
+    --color-grayish: #708893;*/
+
+    /* Breakpoints */
+   /* --breakpoint-phone: 370px;
+    --breakpoint-phone-md: 414px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-laptop: 890px;
+    --breakpoint-desktop: 1200px;
+    --breakpoint-wide: 1400px;
+    --breakpoint-wide2: 1600px;*/
+
+    /* Fonts */
+    --font-sans: sans-serif;
+    /*--font-sans: 'Eina-01-Regular', sans-serif;
+    --font-bold: 'Eina-01-Bold', sans-serif;
+    --font-semibold: 'Eina-01-SemiBold', sans-serif;*/
+}
+
+.debug {
+    outline: 1px dashed #ff0080;
+}
+:root {
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 215 20.2% 65.1%;
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    /*--secondary: 220 14.3% 95.9%;*/
+    --secondary: #7f9bff;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --radius: 0.5rem;
+}
+
+html {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+p {
+    strong {
+        font-weight: 700;
+    }
+}
+
+[debug] {
+    outline: 1px solid red;
+}
+
+.page-enter-active,
+.page-leave-active {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.page-enter-from {
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.page-enter-to {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-leave-from {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-leave-to {
+    opacity: 0;
+    transform: translateY(12px);
+}
