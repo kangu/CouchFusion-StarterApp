@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Safelist all spacing utilities with responsive variants */
+@source inline("{,sm:,md:,lg:,xl:}{pt,pr,pb,pl,px,py,mt,mr,mb,ml,mx,my}-{0,1,2,4,6,8,12,24}");
+
 /* Extend tailwind */
 @theme {
     /* Colors */

@@ -5,7 +5,7 @@
 - Deployment to web using bun run build
 
 # Build up knowledge
-- Read up the documentation from https://nuxt.com/docs/3.x/getting-started/introduction and https://content.nuxt.com/docs/getting-started
+- Read up the documentation from https://nuxt.com/docs/4.x/getting-started/introduction and https://content.nuxt.com/docs/getting-started
 
 # Commands
 - Always use "bun run build" when building the project, no "npm"
