@@ -3,9 +3,57 @@ import type { ComponentDefinition } from '#content/types/builder'
 const definitions: ComponentDefinition[] = [
   {
     id: 'content-plus-main-image',
-    label: 'Content + Main Image',
-    description: 'Split layout with copy on the left and a scroll-responsive hero image on the right.',
+    label: 'Content Plus Main Image',
+    description: 'Auto-generated registry entry for ContentPlusMainImage.',
     props: [
+      {
+        key: 'accentColor',
+        label: 'Accent Color',
+        type: 'text',
+        default: '#f3f4ff'
+      },
+      {
+        key: 'accentOpacity',
+        label: 'Accent Opacity',
+        type: 'text',
+        default: 0.55
+      },
+      {
+        key: 'accentSecondaryColor',
+        label: 'Accent Secondary Color',
+        type: 'text',
+        default: '#ffe0f0'
+      },
+      {
+        key: 'accentShape',
+        label: 'Accent Shape',
+        type: 'boolean',
+        default: true
+      },
+      {
+        key: 'backgroundColor',
+        label: 'Background Color',
+        type: 'text',
+        default: '#ffffff'
+      },
+      {
+        key: 'description',
+        label: 'Description',
+        type: 'text',
+        default: 'This layout adapts seamlessly to any device, ensuring your content shines on phones, tablets, and desktops without extra tweaking.'
+      },
+      {
+        key: 'descriptionColor',
+        label: 'Description Color',
+        type: 'text',
+        default: 'rgba(15, 23, 42, 0.7)'
+      },
+      {
+        key: 'dividerColor',
+        label: 'Divider Color',
+        type: 'text',
+        default: '#e2e8f0'
+      },
       {
         key: 'eyebrow',
         label: 'Eyebrow',
@@ -16,16 +64,91 @@ const definitions: ComponentDefinition[] = [
         key: 'eyebrowColor',
         label: 'Eyebrow Color',
         type: 'text',
+        default: '#ff1f7d'
+      },
+      {
+        key: 'eyebrowUppercase',
+        label: 'Eyebrow Uppercase',
+        type: 'boolean',
+        default: true
+      },
+      {
+        key: 'highlightColor',
+        label: 'Highlight Color',
+        type: 'text',
         default: '#ff1f7d',
         ui: {
           widget: 'color'
         }
       },
       {
-        key: 'eyebrowUppercase',
-        label: 'Uppercase Eyebrow',
+        key: 'imageAlt',
+        label: 'Image Alt',
+        type: 'text',
+        default: ''
+      },
+      {
+        key: 'imageShadow',
+        label: 'Image Shadow',
         type: 'boolean',
         default: true
+      },
+      {
+        key: 'imageSrc',
+        label: 'Image Src',
+        type: 'text',
+        required: true,
+        ui: {
+          component: 'ContentImageField'
+        }
+      },
+      {
+        key: 'maxImageShift',
+        label: 'Max Image Shift',
+        type: 'number',
+        default: 0
+      },
+      {
+        key: 'motionEasing',
+        label: 'Motion Easing',
+        type: 'number',
+        default: 0.18
+      },
+      {
+        key: 'motionIntensity',
+        label: 'Motion Intensity',
+        type: 'number',
+        default: 0.12
+      },
+      {
+        key: 'paddingX',
+        label: 'Padding X',
+        type: 'text',
+        default: 'clamp(1.5rem, 5vw, 8rem)'
+      },
+      {
+        key: 'paddingY',
+        label: 'Padding Y',
+        type: 'text',
+        default: '6rem'
+      },
+      {
+        key: 'showDivider',
+        label: 'Show Divider',
+        type: 'boolean',
+        default: false
+      },
+      {
+        key: 'textAlign',
+        label: 'Text Align',
+        type: 'text',
+        default: 'left'
+      },
+      {
+        key: 'textColor',
+        label: 'Text Color',
+        type: 'text',
+        default: '#111827'
       },
       {
         key: 'title',
@@ -38,158 +161,8 @@ const definitions: ComponentDefinition[] = [
         label: 'Title Highlight',
         type: 'text',
         default: ''
-      },
-      {
-        key: 'highlightColor',
-        label: 'Highlight Color',
-        type: 'text',
-        default: '#ff1f7d',
-        ui: {
-          widget: 'color'
-        }
-      },
-      {
-        key: 'description',
-        label: 'Description',
-        type: 'textarea',
-        default: 'This layout adapts seamlessly to any device, ensuring your content shines on phones, tablets, and desktops without extra tweaking.'
-      },
-      {
-        key: 'descriptionColor',
-        label: 'Description Color',
-        type: 'text',
-        default: 'rgba(15, 23, 42, 0.7)',
-        ui: {
-          widget: 'color'
-        }
-      },
-      {
-        key: 'textColor',
-        label: 'Text Color',
-        type: 'text',
-        default: '#111827',
-        ui: {
-          widget: 'color'
-        }
-      },
-      {
-        key: 'backgroundColor',
-        label: 'Background Color',
-        type: 'text',
-        default: '#ffffff',
-        ui: {
-          widget: 'color'
-        }
-      },
-      {
-        key: 'accentShape',
-        label: 'Show Accent Shape',
-        type: 'boolean',
-        default: true
-      },
-      {
-        key: 'accentColor',
-        label: 'Accent Base Color',
-        type: 'text',
-        default: '#f3f4ff',
-        ui: {
-          widget: 'color'
-        }
-      },
-      {
-        key: 'accentSecondaryColor',
-        label: 'Accent Secondary Color',
-        type: 'text',
-        default: '#ffe0f0',
-        ui: {
-          widget: 'color'
-        }
-      },
-      {
-        key: 'accentOpacity',
-        label: 'Accent Opacity',
-        type: 'number',
-        default: 0.55
-      },
-      {
-        key: 'imageSrc',
-        label: 'Image Source',
-        type: 'text',
-        required: true,
-        ui: {
-          component: 'ContentImageField'
-        }
-      },
-      {
-        key: 'imageAlt',
-        label: 'Image Alt Text',
-        type: 'text',
-        default: ''
-      },
-      {
-        key: 'imageShadow',
-        label: 'Enable Image Shadow',
-        type: 'boolean',
-        default: true
-      },
-      {
-        key: 'maxImageShift',
-        label: 'Max Image Shift (px, ≤0 for unlimited)',
-        type: 'number',
-        default: 0
-      },
-      {
-        key: 'motionIntensity',
-        label: 'Motion Intensity',
-        type: 'number',
-        default: 0.12
-      },
-      {
-        key: 'motionEasing',
-        label: 'Motion Easing',
-        type: 'number',
-        default: 0.18
-      },
-      {
-        key: 'paddingY',
-        label: 'Vertical Padding',
-        type: 'text',
-        default: '6rem'
-      },
-      {
-        key: 'paddingX',
-        label: 'Horizontal Padding',
-        type: 'text',
-        default: 'clamp(1.5rem, 5vw, 8rem)'
-      },
-      {
-        key: 'textAlign',
-        label: 'Text Alignment',
-        type: 'select',
-        options: [
-          { label: 'Left', value: 'left' },
-          { label: 'Center', value: 'center' }
-        ],
-        default: 'left'
-      },
-      {
-        key: 'showDivider',
-        label: 'Show Vertical Divider',
-        type: 'boolean',
-        default: false
-      },
-      {
-        key: 'dividerColor',
-        label: 'Divider Color',
-        type: 'text',
-        default: '#e2e8f0',
-        ui: {
-          widget: 'color'
-        }
       }
-    ],
-    allowChildren: false,
-    childHint: 'Standalone content block without nested children.'
+    ]
   },
   {
     id: 'parallax',

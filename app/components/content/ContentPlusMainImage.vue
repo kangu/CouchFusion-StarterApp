@@ -1,5 +1,6 @@
 <template>
   <section
+      ref="sectionRef"
       class="content-plus-main-image"
       :style="sectionStyle"
       role="presentation"
@@ -174,12 +175,15 @@ const props = defineProps({
   }
 })
 
+const sectionRef = ref<HTMLElement | null>(null)
 const currentOffset = ref(0)
 const targetOffset = ref(0)
 const motionDisabled = ref(false)
+const isActive = ref(false)
 let frameId = 0
 let removeMotionPreferenceListener: (() => void) | null = null
 let lastScrollY = 0
+let intersectionObserver: IntersectionObserver | null = null
 
 const clamp = (value: number, limit: number) => {
   if (!Number.isFinite(limit)) {
@@ -308,12 +312,13 @@ const ensureAnimation = () => {
 }
 
 const handleScroll = () => {
-  if (!import.meta.client || motionDisabled.value) {
-    return
-  }
   const nextScrollY = window.scrollY || window.pageYOffset || 0
   const delta = nextScrollY - lastScrollY
   lastScrollY = nextScrollY
+
+  if (!import.meta.client || motionDisabled.value || !isActive.value) {
+    return
+  }
 
   if (delta === 0) {
     return
@@ -339,6 +344,23 @@ onMounted(() => {
     return
   }
   lastScrollY = window.scrollY || window.pageYOffset || 0
+
+  intersectionObserver = new IntersectionObserver((entries) => {
+    const entry = entries[0]
+    const active = Boolean(entry?.isIntersecting)
+    if (active !== isActive.value) {
+      isActive.value = active
+      lastScrollY = window.scrollY || window.pageYOffset || 0
+      if (!active) {
+        stopAnimation()
+      }
+    }
+  }, { threshold: 0.1 })
+
+  if (sectionRef.value) {
+    intersectionObserver.observe(sectionRef.value)
+  }
+
   setupMotionPreference()
   window.addEventListener('scroll', handleScroll, { passive: true })
   window.addEventListener('resize', handleResize)
@@ -351,6 +373,10 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', handleScroll)
   window.removeEventListener('resize', handleResize)
   stopAnimation()
+  if (intersectionObserver) {
+    intersectionObserver.disconnect()
+    intersectionObserver = null
+  }
   if (removeMotionPreferenceListener) {
     removeMotionPreferenceListener()
     removeMotionPreferenceListener = null
