@@ -89,7 +89,8 @@ useHead(() => ({
     <div v-if="pending" class="loading-state">
       <p>Loading content…</p>
     </div>
-    <ContentRenderer v-else-if="pageDocument" :value="pageDocument" />
+<!--    <ContentRenderer v-else-if="pageDocument" :value="pageDocument" />-->
+    <Content v-else-if="pageDocument" :value="pageDocument" />
     <section v-else class="not-found">
       <h1>Page not found</h1>
       <p>The requested page does not exist or is not published yet.</p>
