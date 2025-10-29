@@ -14,11 +14,5 @@ export default defineConfig({
         './content/**/*.{md,json,yml}',
         '../../layers/**/*.{vue,js,ts}'
     ],
-    theme: {
-        extend: {
-            colors: {
-            }
-        }
-    },
     plugins: [tailwindcssAnimate]
 })

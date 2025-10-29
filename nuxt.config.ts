@@ -6,7 +6,7 @@ export default defineNuxtConfig({
         '~/assets/css/fonts.css',
         '~/assets/css/main.css',
     ],
-    modules: ["@nuxt/content", "@pinia/nuxt"],
+    modules: ["@pinia/nuxt"],
     runtimeConfig: {
         dbLoginPrefix: 'ns-',
         imagekit: {
