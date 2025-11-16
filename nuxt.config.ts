@@ -97,4 +97,11 @@ export default defineNuxtConfig({
             }
         }
     },
+    nitro: {
+        output: {
+            dir: './.output/dist', // folder that already contains
+            publicDir: './.output/dist/public',
+            serverDir: './.output/dist/server',
+        }
+    }
 })

@@ -19,7 +19,12 @@
     "nuxt": "4.1.2",
     "pinia": "3.0.3",
     "vue": "3.5.22",
-    "vue-router": "4.5.1"
+    "vue-router": "4.5.1",
+    "@noble/hashes": "^1.4.0",
+    "@tiptap/core": "^3.10.5",
+    "@tiptap/starter-kit": "^3.10.5",
+    "@tiptap/vue-3": "^3.10.5",
+    "dompurify": "^3.3.0"
   },
   "devDependencies": {
     "@playwright/test": "1.55.1",
